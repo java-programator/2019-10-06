@@ -3,6 +3,7 @@ package pl.altkom.karty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 enum KolorKarty {
     KIER, KARO, PIK, TREFL;
@@ -32,6 +33,9 @@ class Karta {
 
 public class TasowanieKart {
     public static void main(String[] args) {
+        Random r = new Random();
+
+
         KolorKarty k = KolorKarty.KARO;
         System.out.println(k.name());
         System.out.println(k.ordinal());
@@ -47,6 +51,16 @@ public class TasowanieKart {
                 Karta karta = new Karta(kolor, figura);
                 talia.add(karta);
             }
+        }
+
+        for (int i = 0; i < 1000; i++) {
+            int i1 = r.nextInt(talia.size());
+            int i2 = r.nextInt(talia.size());
+
+            Karta temp = talia.get(i1);
+            talia.set(i1, talia.get(i2));
+            talia.set(i2, temp);
+
         }
 
         for (Karta karta : talia) {
