@@ -11,11 +11,11 @@ public class LiczenieSlow {
     public static void main(String[] args) throws FileNotFoundException {
         Scanner sc = new Scanner(
                 new FileInputStream(
-                        "/home/student/Pobrane/lalka-tom-pierwszy.txt"));
+                        "/home/student/Pobrane/wesele.txt"));
         Set<String> slowa = new HashSet<>();
         while (sc.hasNext()) {
             String slowo = sc.next().toLowerCase();
-            String[] parts = slowo.split("[,./:!?;()–-…0123456789]");
+            String[] parts = slowo.split("[,./:!?;()–\\-…0123456789]");
             for (String part : parts) {
                 if (part.length() > 0) {
                     slowa.add(part);
@@ -30,9 +30,17 @@ public class LiczenieSlow {
 //                slowa.add(slowo.substring(0, slowo.length()-1));
 //            }
         }
-        System.out.println(slowa.size());
+//        System.out.println(slowa.size());
 //        for (String s : slowa) {
 //            System.out.println(s);
 //        }
+        String max = "";
+        for (String tekst : slowa){
+            if (tekst.length() > max.length()){
+                max = tekst;
+            }
+        }
+
+        System.out.println(max);
     }
 }
