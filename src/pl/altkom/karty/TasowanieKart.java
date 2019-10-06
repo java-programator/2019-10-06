@@ -1,6 +1,8 @@
 package pl.altkom.karty;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 enum KolorKarty {
     KIER, KARO, PIK, TREFL;
@@ -18,6 +20,14 @@ class Karta {
         this.kolor = kolor;
         this.figura = figura;
     }
+
+    @Override
+    public String toString() {
+        return "Karta{" +
+                "kolor=" + kolor +
+                ", figura=" + figura +
+                '}';
+    }
 }
 
 public class TasowanieKart {
@@ -29,5 +39,19 @@ public class TasowanieKart {
         System.out.println(k.compareTo(KolorKarty.KIER));
         System.out.println(Arrays.toString(KolorKarty.values()));
         System.out.println(KolorKarty.valueOf("PIK"));
+
+        List<Karta> talia = new ArrayList<>();
+
+        for (KolorKarty kolor : KolorKarty.values()) {
+            for (FiguraKarty figura : FiguraKarty.values()) {
+                Karta karta = new Karta(kolor, figura);
+                talia.add(karta);
+            }
+        }
+
+        for (Karta karta : talia) {
+            System.out.println(karta);
+        }
+
     }
 }
