@@ -8,7 +8,7 @@ public class LiczenieLiter {
     public static void main(String[] args) throws FileNotFoundException {
         Scanner sc = new Scanner(
                 new FileInputStream(
-                        "/home/student/Pobrane/lalka-tom-pierwszy.txt"));
+                        "/home/student/Pobrane/wesele.txt"));
         Map<Character, Integer> litery = new HashMap<>();
         while (sc.hasNext()) {
             String line = sc.nextLine().toLowerCase();
