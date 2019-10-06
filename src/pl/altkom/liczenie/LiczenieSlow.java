@@ -15,7 +15,7 @@ public class LiczenieSlow {
         Set<String> slowa = new HashSet<>();
         while (sc.hasNext()) {
             String slowo = sc.next().toLowerCase();
-            String[] parts = slowo.split("[,./:!?;()–-…0123456789]");
+            String[] parts = slowo.split("[,./:!?;()–\\-…0123456789]");
             for (String part : parts) {
                 if (part.length() > 0) {
                     slowa.add(part);
@@ -34,5 +34,14 @@ public class LiczenieSlow {
 //        for (String s : slowa) {
 //            System.out.println(s);
 //        }
+
+        String max = "";
+        for (String s : slowa) {
+            if (s.length() > max.length()) {
+                max = s;
+            }
+        }
+        System.out.println(max);
+
     }
 }
